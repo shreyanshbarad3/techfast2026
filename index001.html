@@ -2,59 +2,261 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <title>ABHUDAYA 2026</title>
 <style>
-:root{--bg1:#2b0a45;--bg2:#7a0f62;--bg3:#cf1177;--panel:#5b0f5d;--panel2:#2d1145;--text:#ffffff;--muted:#f2d8ef;--accent:#ffd54a;--border:#ffffff;}
-*{margin:0;padding:0;box-sizing:border-box}body{font-family:Arial,sans-serif;background:linear-gradient(135deg,var(--bg1),var(--bg2),var(--bg3));color:var(--text);line-height:1.6}header{background:linear-gradient(90deg,rgba(43,10,69,.95),rgba(122,15,98,.95));padding:18px 40px;position:sticky;top:0;border-bottom:2px solid rgba(255,255,255,.15)}nav{display:flex;justify-content:space-between;align-items:center}nav a{color:#fff;text-decoration:none;margin-left:18px}.hero{padding:90px 20px;text-align:center}.hero h1{font-size:56px}.hero p{max-width:800px;margin:20px auto;color:var(--muted)}.btn{display:inline-block;background:#ffd54a;color:#111;padding:12px 22px;border-radius:10px;text-decoration:none;font-weight:bold}.section{padding:70px 20px;max-width:1200px;margin:auto}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}.card{background:linear-gradient(135deg,var(--panel),var(--panel2));padding:24px;border-radius:18px;box-shadow:0 10px 25px rgba(0,0,0,.25);border:2px solid rgba(255,255,255,.18)}.card h3{margin-bottom:10px;color:#ffd54a}footer{padding:30px;text-align:center;background:linear-gradient(90deg,var(--bg2),var(--bg1));color:var(--muted)}.tag{color:var(--muted);font-size:14px;margin-bottom:10px}ul{padding-left:20px;margin-top:10px}li{margin:6px 0}
+:root{
+  --bg1:#8B005D; 
+  --bg2:#B9005A; 
+  --bg3:#D8005A; 
+  --panel:rgba(120, 0, 80, 0.9); 
+  --panel2:rgba(80, 0, 50, 0.9);
+  --text:#ffffff;
+  --muted:#ffccff; 
+  --accent:#FF9900; 
+  --border:#ffffff;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: 
+    radial-gradient(circle, rgba(255,255,255,0.05) 2px, transparent 2px) 0 0,
+    radial-gradient(circle, rgba(255,255,255,0.05) 2px, transparent 2px) 15px 15px,
+    linear-gradient(180deg, var(--bg3) 0%, var(--bg2) 50%, var(--bg1) 100%);
+  background-size: 30px 30px, 30px 30px, 100% 100%;
+  color:var(--text);
+  line-height:1.6;
+  animation: fadeIn 0.8s ease-in-out;
+}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+header{ background: rgba(139, 0, 93, 0.8); backdrop-filter: blur(10px); padding:18px 40px; position:sticky; top:0; border-bottom:2px solid var(--border); z-index: 1000; }
+nav{display:flex;justify-content:space-between;align-items:center}
+nav h2 { font-size: 24px; letter-spacing: 2px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+nav a{color:#fff;text-decoration:none;margin-left:18px; font-weight: bold;}
+.hero{padding:90px 20px;text-align:center}
+.hero h1{ font-size:64px; font-weight: 900; text-transform: uppercase; color: #fff; text-shadow: 3px 3px 0px rgba(0,0,0,0.3); margin-bottom: 10px; }
+.hero h1 span { color: var(--accent); }
+.hero p{ max-width:800px; margin:10px auto; font-size: 20px; font-weight: bold; letter-spacing: 1px; }
+.btn{ display:inline-block; background:#ffffff; color:#8B005D; padding:14px 28px; border-radius:999px; text-decoration:none; font-weight:bold; box-shadow:0 8px 20px rgba(0,0,0,.2); margin-top: 20px; transition: all 0.3s ease; text-align: center;}
+.btn:hover { background: var(--accent); color: #fff; transform: scale(1.05); }
+.section{padding:70px 20px;max-width:1200px;margin:auto}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.card{ background: linear-gradient(180deg, var(--panel), var(--panel2)); padding:24px; border-radius: 20px; box-shadow:0 14px 30px rgba(0,0,0,.32); border: 2px solid var(--border); position: relative; cursor: pointer;}
+.phase-card { margin-top: 40px; padding-top: 35px; cursor: default;}
+.phase-title { position: absolute; top: -20px; left: 50%; transform: translateX(-50%); background: var(--bg3); color: #fff; padding: 5px 20px; border: 2px solid #fff; border-radius: 5px; font-size: 18px; font-weight: bold; white-space: nowrap; box-shadow: 0 4px 6px rgba(0,0,0,0.3); }
+.card h3{margin-bottom:10px;color:#fff; font-size: 22px;}
+footer{ padding:20px; text-align:center; background: #500030; color:var(--text); border-top: 4px solid var(--bg3); }
+.contact-bar { display: flex; justify-content: center; gap: 20px; align-items: center; flex-wrap: wrap; margin-top: 20px; }
+.contact-item { display: flex; align-items: center; gap: 8px; font-weight: bold; }
+.tag{color:var(--muted);font-size:14px;margin-bottom:10px}
+ul{padding-left:20px;margin-top:10px; color: var(--muted);}
+li{margin:6px 0; list-style-type: square;}
+html{scroll-behavior:smooth}
+.hero{position:relative;overflow:hidden}
+.hero>*{position:relative}
+.card{transition:transform .3s ease,box-shadow .3s ease}
+.card:hover{transform:translateY(-5px);box-shadow:0 18px 36px rgba(0,0,0,.4)}
+nav a{padding:8px 12px;border-radius:10px}
+nav a:hover{background:rgba(255,255,255,.2)}
+.countdown{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:28px}
+.timebox{ background:rgba(255,255,255,.1); border:2px solid rgba(255,255,255,.8); padding:14px 18px; border-radius:12px; min-width:90px; text-align: center; }
+.timebox b{font-size:28px;display:block; color: var(--accent);}
+.menu-toggle{display:none;font-size:28px;cursor:pointer}
+.reveal{opacity:0;transform:translateY(30px);transition:all .8s ease}
+.reveal.show{opacity:1;transform:none}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:99;align-items:center;justify-content:center; backdrop-filter: blur(5px);}
+.modal-content{ max-width:600px; width:92%; background:linear-gradient(135deg, var(--bg2), var(--bg1)); padding:28px; border-radius:22px; border:3px solid #fff; animation: modalDrop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+@keyframes modalDrop { from { transform: translateY(-50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+.close{float:right;cursor:pointer;font-size:28px; color: #fff; transition: 0.3s;}
+.close:hover{color: var(--accent); transform: rotate(90deg);}
+form input,form textarea{ width:100%; padding:12px; margin:8px 0; border:1px solid #fff; background: rgba(255,255,255,0.1); color: #fff; border-radius:10px; }
+form input::placeholder, form textarea::placeholder { color: rgba(255,255,255,0.7); }
+form button{border:none;cursor:pointer; width: 100%; margin-top: 10px;}
+.mobile-nav{display:flex}
+.top-logos{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:25px;
+flex-wrap:wrap;
+margin-bottom:25px;
+}
+
+.top-logos img{
+height:95px;
+width:auto;
+object-fit:contain;
+filter:drop-shadow(0 6px 12px rgba(0,0,0,.25));
+}
+
+@media(max-width:768px){
+.top-logos img{
+height:75px;
+}
+}
+@media(max-width:768px){
+
+body{
+overflow-x:hidden;
+}
+
+.hero{
+padding:55px 15px;
+}
+
+.hero h1{
+font-size:34px;
+line-height:1.2;
+}
+
+.hero p{
+font-size:16px;
+}
+
+.section{
+padding:40px 15px;
+}
+
+.grid{
+grid-template-columns:1fr;
+gap:15px;
+}
+
+.countdown{
+gap:8px;
+}
+
+.timebox{
+min-width:72px;
+padding:10px 8px;
+}
+
+.timebox b{
+font-size:20px;
+}
+
+.btn{
+display:inline-block;
+width:auto;
+max-width:100%;
+}
+
+.menu-toggle{
+display:block;
+}
+
+.mobile-nav{
+display:none;
+flex-direction:column;
+position:absolute;
+right:20px;
+top:70px;
+background:rgba(139,0,93,.95);
+padding:15px;
+border-radius:14px;
+border:1px solid #fff;
+}
+
+.mobile-nav.show{
+display:flex;
+}
+
+.phase-title{
+font-size:14px;
+width:85%;
+text-align:center;
+}
+
+}
+}
 </style>
 </head>
 <body>
 <header>
 <nav>
-<h2>ABHUDAYA 2026</h2>
-<div>
-<a href="#about">About</a>
-<a href="#events">Events</a>
-<a href="#contact">Contact</a>
-</div>
+<h2>ABHUDAYA <span style="color:var(--accent);">2026</span></h2>
+<div class='menu-toggle' onclick='toggleMenu()'>☰</div><div class='mobile-nav' id='navMenu'><a href='#phases'>Phases</a><a href='#events'>Events</a><a href='#contact'>Contact</a></div>
 </nav>
 </header>
 <section class="hero">
-<h1>Create. Compete. Conquer.</h1>
-<p>Welcome to ABHUDAYA 2026, the ultimate technical celebration of innovation, engineering excellence, teamwork, and creativity.</p>
-<a class="btn" href="#events">Explore Events</a>
+<div class="top-logos">
+<img src="logo.png" alt="College Logo">
+<img src="icon.png" alt="Event Logo" style="height:190px; width:auto;">
+</div>
+<h1>ABHUDAYA : <span>2026</span></h1>
+<p>SHANTILAL SHAH ENGINEERING COLLEGE<br>BHAVNAGAR</p>
+<hr style="width: 50%; margin: 15px auto; border: 1px solid var(--accent);">
+<h3 style="margin-top:18px;font-size:24px; font-weight: normal; letter-spacing: 1px;">"COLLABORATE, INNOVATE, COMPETE"</h3>
+<a class="btn" href="#phases">Explore Phases</a><div class="countdown"><div class="timebox"><b id="d">00</b>Days</div><div class="timebox"><b id="h">00</b>Hours</div><div class="timebox"><b id="m">00</b>Min</div><div class="timebox"><b id="s">00</b>Sec</div></div>
 </section>
-<section class="section" id="about">
-<h2>About ABHUDAYA 2026</h2>
-<p>ABHUDAYA 2026 brings together students from Civil, Mechanical, Electrical, IT and multidisciplinary backgrounds through challenging technical competitions designed to inspire future engineers.</p>
-</section>
-<section class="section" id="events">
-<h2>Official Events</h2>
-<div class="grid">
-<div class="card"><div class="tag">Civil Engineering</div><h3>BuildScape</h3><p>3D Residential Building Making Competition.</p></div>
-<div class="card"><div class="tag">Mechanical Engineering</div><h3>MechMotion</h3><p>Hydraulic & leverage principle model making.</p></div>
-<div class="card"><div class="tag">Electrical Engineering</div><h3>VoltQuest</h3><p>3-round technical quiz competition.</p></div>
-<div class="card"><div class="tag">Information Technology</div><h3>CodeShastra</h3><p>Website / AI based project challenge.</p></div>
-<div class="card"><div class="tag">Mega Event</div><h3>Engineering Crisis</h3><p>Random mixed teams solve engineering crisis scenarios.</p></div>
-<div class="card"><div class="tag">Grand Finale</div><h3>VisionForge</h3><p>Domain-based concept model making challenge.</p></div>
-<div class="card"><div class="tag">Grand Finale</div><h3>SkyRise</h3><p>Newspaper tower strength challenge.</p></div>
+<section class="section reveal" id="phases">
+<h2 style="text-align:center;margin-bottom:40px; background: #fff; color: var(--bg1); display: inline-block; padding: 5px 20px; border-radius: 5px; position: relative; left: 50%; transform: translateX(-50%);">THREE PHASES OF ENGINEERING EXCELLENCE</h2>
+<div class="card phase-card" style="margin-bottom:40px;">
+<div class="phase-title">⏱ Phase 1 : DEPARTMENTAL EVENTS [FIRST 2 HOURS]</div>
+<ul><li>BuildScape</li><li>MechMotion</li><li>VoltQuest</li><li>CodeShastra</li></ul>
+</div>
+<div class="card phase-card" style="margin-bottom:40px;">
+<div class="phase-title">⏱ Phase 2 : ENGINEERING CRISIS CHALLENGE [NEXT 2 HOURS]</div>
+<ul><li>Random interdisciplinary teams</li><li>Poster / Model based solution</li></ul>
+</div>
+<div class="card phase-card" style="margin-bottom:40px;">
+<div class="phase-title">⏱ Phase 3 : DEPARTMENT VS DEPARTMENT [LAST 2 HOURS]</div>
+<ul><li>VisionForge</li><li>SkyRise</li></ul>
 </div>
 </section>
-<section class="section">
-<h2>Why Participate?</h2>
+<section class="section reveal" id="events">
+<h2 style="text-align:center; margin-bottom: 20px;">Featured Events</h2>
 <div class="grid">
-<div class="card"><h3>Innovation</h3><p>Turn ideas into impactful creations.</p></div>
-<div class="card"><h3>Competition</h3><p>Challenge yourself against top talent.</p></div>
-<div class="card"><h3>Recognition</h3><p>Win prizes, certificates and prestige.</p></div>
+<div class="card" onclick="openEvent('BuildScape')"><h3>BuildScape</h3><p>3D Residential Building Challenge</p></div>
+<div class="card" onclick="openEvent('MechMotion')"><h3>MechMotion</h3><p>Hydraulic & Leverage Models</p></div>
+<div class="card" onclick="openEvent('VoltQuest')"><h3>VoltQuest</h3><p>3 Round Technical Quiz</p></div>
+<div class="card" onclick="openEvent('CodeShastra')"><h3>CodeShastra</h3><p>Website / AI Project Competition</p></div>
+<div class="card" onclick="openEvent('Engineering Crisis')"><h3>Engineering Crisis</h3><p>Mixed branch problem solving event</p></div>
+<div class="card" onclick="openEvent('VisionForge')"><h3>VisionForge</h3><p>Domain concept model challenge</p></div>
+<div class="card" onclick="openEvent('SkyRise')"><h3>SkyRise</h3><p>Newspaper tower strength test</p></div>
 </div>
 </section>
-<section class="section" id="contact">
-<h2>Contact</h2>
-<p>For registrations and updates, contact the organizing committee of ABHUDAYA 2026.</p>
+<section class="section reveal"><h2 style="text-align:center; margin-bottom: 20px;">Register Now</h2><div class='card' style="cursor: default; text-align:center;"><a href="https://forms.gle/b4yrUm9QJTUiSuVn9" target="_blank" class="btn" style="margin-top:0;">Click Here to Register</a></div></section>
+<section class="section reveal"><h2 style="text-align:center; margin-bottom: 20px;">Faculty Coordinators</h2><div class='grid'><div class='card' style="cursor: default;"><h3>Prof. A</h3><p>Chief Coordinator</p></div><div class='card' style="cursor: default;"><h3>Prof. B</h3><p>Event Head</p></div><div class='card' style="cursor: default;"><h3>Prof. C</h3><p>Technical Lead</p></div></div></section>
+<section class="section reveal" id="contact">
+<div class="card" style="text-align: center; cursor: default;">
+<h2>More Information</h2>
+<p>Contact Organizing Committee, ABHUDAYA 2026</p>
+<p>Shantilal Shah Engineering College, Bhavnagar</p>
+<div class="contact-bar">
+  <div class="contact-item">📞 +123-456-7890</div>
+  <div class="contact-item">🌐 www.reallygreatsite.com</div>
+</div>
+</div>
 </section>
-<footer>
-<p>© 2026 ABHUDAYA. All Rights Reserved.</p>
-</footer>
+<footer><p>© ABHUDAYA 2026 | Create. Compete. Conquer.</p></footer>
+<script>const target=new Date('May 1, 2026 10:30:00').getTime();setInterval(()=>{const now=new Date().getTime();let diff=target-now;if(diff<0)diff=0;const d=Math.floor(diff/86400000),h=Math.floor(diff%86400000/3600000),m=Math.floor(diff%3600000/60000),s=Math.floor(diff%60000/1000);document.getElementById('d').innerText=String(d).padStart(2,'0');document.getElementById('h').innerText=String(h).padStart(2,'0');document.getElementById('m').innerText=String(m).padStart(2,'0');document.getElementById('s').innerText=String(s).padStart(2,'0');},1000);</script>
+<div class='modal' id='modal'><div class='modal-content'><span class='close' onclick='closeModal()'>&times;</span><h2 id='mt' style="margin-bottom: 15px; color:var(--accent);"></h2><p id='md'></p></div></div>
+<script>
+function toggleMenu(){document.getElementById('navMenu').classList.toggle('show')}
+function openModal(t,d){document.getElementById('mt').innerText=t;document.getElementById('md').innerHTML=d;document.getElementById('modal').style.display='flex'}
+function closeModal(){document.getElementById('modal').style.display='none'}
+
+// અહીં target="_blank" કાઢી નાખ્યું છે જેથી એ જ ટેબમાં ખુલે
+function openEvent(name){
+const data={
+'BuildScape':'<b>Civil Engineering</b><br>Team: Max 4 Members<br>Duration: 2 Hours<br>Build a G+1 residential model on 40x40 cm base. Height 25-40 cm.<br><br><b>Judging:</b> Cleanliness, Elevation, Creativity.<br><br><a href="buildscape.html" class="btn" style="padding: 10px 20px; font-size: 14px; margin-top: 15px; display:block;">Read more... ↗</a>',
+
+'MechMotion':'<b>Mechanical Engineering</b><br>Team: Max 4 Members<br>Duration: 2 Hours<br>Create hydraulic or leverage based model using syringes, tubes and cardboard.<br><br><b>Judging:</b> Working Mechanism, Innovation, Finishing.<br><br><a href="mechmotion.html" class="btn" style="padding: 10px 20px; font-size: 14px; margin-top: 15px; display:block;">Read more... ↗</a>',
+
+'VoltQuest':'<b>Electrical Engineering</b><br>Individual Event<br>3 Round Quiz based on Electrical, Electronics and Mechanical basics.<br><br><b>Judging:</b> Score, Speed, Accuracy.<br><br><a href="voltquest.html" class="btn" style="padding: 10px 20px; font-size: 14px; margin-top: 15px; display:block;">Read more... ↗</a>',
+
+'CodeShastra':'<b>IT Department</b><br>Team: 2 to 5 Members<br>Build website/AI project on given topic and present to judges.<br><br><b>Judging:</b> UI, Logic, Innovation, Impact.<br><br><a href="codeshastra.html" class="btn" style="padding: 10px 20px; font-size: 14px; margin-top: 15px; display:block;">Read more... ↗</a>',
+
+'Engineering Crisis':'<b>Mega Event</b><br>Random 4 member interdisciplinary teams solve scenario using poster/model. AI allowed.<br><br><b>Judging:</b> Teamwork, Feasibility, Creativity.<br><br><a href="engineeringcrisis.html" class="btn" style="padding: 10px 20px; font-size: 14px; margin-top: 15px; display:block;">Read more... ↗</a>',
+
+'VisionForge':'<b>Grand Finale</b><br>Team: Max 4 Members<br>Create domain based non-working model using cardboard.<br><br><b>Judging:</b> Concept, Relevance, Presentation.<br><br><a href="visionforge.html" class="btn" style="padding: 10px 20px; font-size: 14px; margin-top: 15px; display:block;">Read more... ↗</a>',
+
+'SkyRise':'<b>Grand Finale</b><br>Team: Max 4 Members<br>Build newspaper tower. Base 30x30 cm, Top 10x10 cm.<br><br><b>Judging:</b> Load Capacity, Buckling Resistance, Stability.<br><br><a href="skyrise.html" class="btn" style="padding: 10px 20px; font-size: 14px; margin-top: 15px; display:block;">Read more... ↗</a>'
+};
+openModal(name,data[name])}
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}));document.querySelectorAll('.reveal').forEach(x=>obs.observe(x));
+</script>
 </body>
 </html>
